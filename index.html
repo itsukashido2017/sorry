@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Main Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Prompt:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#66b319",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#192111",
+                        "cream-soft": "#F9F7F2", // Adding a specific soft cream for the emotional context
+                    },
+                    fontFamily: {
+                        "display": ["'Plus Jakarta Sans'", "'Prompt'", "sans-serif"] // Added Prompt for better Thai support
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom gradient fade for the hero image */
+        .hero-fade-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, #f7f8f6 100%);
+        }
+        .dark .hero-fade-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, #192111 100%);
+        }
+        
+        /* Ensure smiley strokes are smooth */
+        .smiley-stroke {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 antialiased min-h-screen flex flex-col items-center overflow-hidden">
+<!-- Mobile Container -->
+<main class="w-full max-w-md h-screen relative flex flex-col bg-cream-soft dark:bg-background-dark shadow-2xl mx-auto overflow-hidden">
+<!-- Hero Section -->
+<div class="relative h-[45%] w-full flex-shrink-0">
+<!-- Image with Data Attribute -->
+<div class="absolute inset-0 bg-cover bg-center grayscale contrast-125" data-alt="Silhouette of person looking at horizon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdNz9AetlFfPRy0Nw-LOiIJ4kkG2xK0fQ67eQmolu1cRO6578iodiw0269Q2v-jU8i-_VlYbhZyVKwwvaz3-dBF9XvuJ2_HPseEGwV12EqBOu2VVedWeTuKP6-1bUG-jy5CelkHFGgH6h-Fkm0l6BWk7G2izTVRx63t5d89g37b_hVzxIWydDL8kEZeubFgNQlvuTXmACONc6bksloIw3Q6kcsy_4ZFJcW7A-KW4yyzDTY4T9CxVAWDzWoP3fb__ddz_5DZ6_1');">
+</div>
+<!-- Overlay Gradient to blend into cream background -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-cream-soft dark:to-background-dark"></div>
+<!-- Bottom curved mask effect -->
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-cream-soft dark:from-background-dark to-transparent"></div>
+</div>
+<!-- Content Section -->
+<div class="flex-1 flex flex-col items-center justify-between px-8 pt-4 pb-10 z-10">
+<!-- Typography Block -->
+<div class="text-center space-y-3 mt-4">
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
+                    แด่... แบม
+                </h1>
+<p class="text-gray-500 dark:text-gray-400 font-light text-lg tracking-wide">
+                    สิ่งที่ฉันอยากบอกแกมาตลอด
+                </p>
+</div>
+<!-- Decorative Center Icon -->
+<div class="flex-1 flex items-center justify-center my-6">
+<div class="relative w-32 h-32 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shadow-sm">
+<!-- Smiley Face SVG -->
+<svg class="text-primary transform rotate-12 transition-transform duration-700 hover:rotate-0" fill="none" height="64" viewbox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
+<circle class="smiley-stroke" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
+<path class="smiley-stroke" d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="currentColor" stroke-width="2"></path>
+<circle cx="9" cy="9" fill="currentColor" r="1"></circle>
+<circle cx="15" cy="9" fill="currentColor" r="1"></circle>
+</svg>
+<!-- Subtle ripple decorative circles -->
+<div class="absolute inset-0 rounded-full border border-primary/10 scale-125 animate-pulse"></div>
+<div class="absolute inset-0 rounded-full border border-primary/5 scale-150"></div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="w-full flex flex-col items-center space-y-8">
+<!-- Primary Button -->
+<button class="group w-full max-w-[280px] bg-primary hover:bg-primary/90 active:scale-95 transition-all duration-300 h-14 rounded-full flex items-center justify-center shadow-lg shadow-primary/20">
+    <a href="page2.html">
+<span class="text-white font-semibold text-xl tracking-wide mr-2">เริ่มอ่าน</span>
+</a>
+<span class="material-icons text-white/80 group-hover:translate-x-1 transition-transform duration-300 text-sm">arrow_forward</span>
+</button>
+<!-- Footer Text -->
+<p class="text-xs text-gray-400 dark:text-gray-600 font-light tracking-wider uppercase">
+                    จากคนคนหนึ่งที่อยากขอโทษ
+                </p>
+</div>
+</div>
+</main>
+<!-- Material Icons for the arrow -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+</body></html>
