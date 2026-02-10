@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
 <html class="light" lang="th">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Main Landing Page</title>
+    <title>Memory &amp; Apology - แด่... แบม</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Prompt:wght@300;400;500;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Prompt:wght@300;400;500;600;700&amp;family=Caveat:wght@400;700&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -20,32 +19,37 @@
                 extend: {
                     colors: {
                         "primary": "#66b319",
-                        "background-light": "#f7f8f6",
-                        "background-dark": "#192111",
-                        "cream-soft": "#F9F7F2", // Adding a specific soft cream for the emotional context
+                        "cream-soft": "#F9F7F2",
+                        "washi-pink": "#FFB7C5",
+                        "washi-blue": "#B2EBF2",
+                        "washi-orange": "#FFCC80",
                     },
                     fontFamily: {
-                        "display": ["'Plus Jakarta Sans'", "'Prompt'", "sans-serif"] // Added Prompt for better Thai support
+                        "display": ["'Plus Jakarta Sans'", "'Prompt'", "sans-serif"],
+                        "handwriting": ["'Caveat'", "cursive"]
                     },
                     borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
                 },
             },
         }
     </script>
-    <style>
-        /* Custom gradient fade for the hero image */
-        .hero-fade-overlay {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #f7f8f6 100%);
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .polaroid {
+                @apply bg-white p-2 pb-6 shadow-md transform;
+            }
+            .washi-tape {
+                @apply absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 opacity-80 mix-blend-multiply;
+            }
         }
-
-        .dark .hero-fade-overlay {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #192111 100%);
+        body {
+            min-height: 100dvh;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-
-        /* Ensure smiley strokes are smooth */
-        .smiley-stroke {
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
     <style>
@@ -55,77 +59,144 @@
     </style>
 </head>
 
-<body
-    class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 antialiased min-h-screen flex flex-col items-center animate-fade-in">
-    <!-- Mobile Container -->
+<body class="bg-cream-soft font-display text-gray-800 antialiased">
     <main
-        class="w-full max-w-md min-h-screen relative flex flex-col bg-cream-soft dark:bg-background-dark shadow-2xl mx-auto">
-        <!-- Hero Section -->
-        <div class="relative h-[45%] w-full flex-shrink-0">
-            <!-- Image with Data Attribute -->
-            <div class="absolute inset-0 bg-cover bg-center grayscale contrast-125"
-                data-alt="Silhouette of person looking at horizon"
-                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdNz9AetlFfPRy0Nw-LOiIJ4kkG2xK0fQ67eQmolu1cRO6578iodiw0269Q2v-jU8i-_VlYbhZyVKwwvaz3-dBF9XvuJ2_HPseEGwV12EqBOu2VVedWeTuKP6-1bUG-jy5CelkHFGgH6h-Fkm0l6BWk7G2izTVRx63t5d89g37b_hVzxIWydDL8kEZeubFgNQlvuTXmACONc6bksloIw3Q6kcsy_4ZFJcW7A-KW4yyzDTY4T9CxVAWDzWoP3fb__ddz_5DZ6_1');">
+        class="w-full max-w-md min-h-screen relative flex flex-col bg-cream-soft mx-auto shadow-2xl overflow-y-auto no-scrollbar pb-32">
+        <div class="relative h-[40vh] w-full flex-shrink-0">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('photo/pic4.jpeg');">
             </div>
-            <!-- Overlay Gradient to blend into cream background -->
-            <div
-                class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-cream-soft dark:to-background-dark">
-            </div>
-            <!-- Bottom curved mask effect -->
-            <div
-                class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-cream-soft dark:from-background-dark to-transparent">
-            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-cream-soft"></div>
         </div>
-        <!-- Content Section -->
-        <div class="flex-1 flex flex-col items-center justify-between px-8 pt-4 pb-10 z-10">
-            <!-- Typography Block -->
-            <div class="text-center space-y-3 mt-4">
-                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
-                    แด่... แบม
-                </h1>
-                <p class="text-gray-500 dark:text-gray-400 font-light text-lg tracking-wide">
-                    สิ่งที่ฉันอยากบอกแกมาตลอด
-                </p>
-            </div>
-            <!-- Decorative Center Icon -->
-            <div class="flex-1 flex items-center justify-center my-6">
-                <div
-                    class="relative w-32 h-32 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shadow-sm">
-                    <!-- Smiley Face SVG -->
-                    <svg class="text-primary transform rotate-12 transition-transform duration-700 hover:rotate-0"
-                        fill="none" height="64" viewbox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="smiley-stroke" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2">
-                        </circle>
-                        <path class="smiley-stroke" d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14"
-                            stroke="currentColor" stroke-width="2"></path>
-                        <circle cx="9" cy="9" fill="currentColor" r="1"></circle>
-                        <circle cx="15" cy="9" fill="currentColor" r="1"></circle>
-                    </svg>
-                    <!-- Subtle ripple decorative circles -->
-                    <div class="absolute inset-0 rounded-full border border-primary/10 scale-125 animate-pulse"></div>
-                    <div class="absolute inset-0 rounded-full border border-primary/5 scale-150"></div>
+        <div class="px-8 -mt-12 relative z-10 text-center space-y-2">
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900 leading-tight">
+                แด่... แบม
+            </h1>
+            <p class="text-gray-500 font-light text-lg italic">
+                สิ่งที่ฉันอยากบอกแกมาตลอด
+            </p>
+        </div>
+        <div class="px-6 mt-12 space-y-12">
+            <div class="relative w-48 mx-auto rotate-[-3deg]">
+                <div class="washi-tape bg-washi-pink rotate-2"></div>
+                <div class="polaroid">
+                    <img alt="Memory 1" class="w-full aspect-square object-cover" src="photo/pic1.jpeg" />
+                    <p class="font-handwriting text-center mt-2 text-gray-600 text-lg">Our first smile</p>
                 </div>
             </div>
-            <!-- Action Area -->
-            <div class="w-full flex flex-col items-center space-y-8">
-                <!-- Primary Button -->
-                <button
-                    class="group w-full max-w-[280px] bg-primary hover:bg-primary/90 active:scale-95 transition-all duration-300 h-14 rounded-full flex items-center justify-center shadow-lg shadow-primary/20">
-                    <a href="page1.html">
-                        <span class="text-white font-semibold text-xl tracking-wide mr-2">เริ่มอ่าน</span>
-                    </a>
-                    <span
-                        class="material-icons text-white/80 group-hover:translate-x-1 transition-transform duration-300 text-sm">arrow_forward</span>
-                </button>
-                <!-- Footer Text -->
-                <p class="text-xs text-gray-400 dark:text-gray-600 font-light tracking-wider uppercase">
-                    จากคนคนหนึ่งที่อยากขอโทษ
-                </p>
+            <div class="flex flex-col items-center">
+                <div
+                    class="relative w-24 h-24 rounded-full border border-gray-200 flex items-center justify-center bg-white shadow-sm">
+                    <img src="photo/emoji.PNG" alt="Smiley" class="w-16 h-16 object-contain transform rotate-12">
+                    <div class="absolute -top-1 right-0 w-8 h-3 bg-washi-orange/40 rotate-45"></div>
+                </div>
+            </div>
+            <div class="relative w-52 ml-auto mr-4 rotate-[4deg]">
+                <div class="washi-tape bg-washi-blue -rotate-3"></div>
+                <div class="polaroid">
+                    <img alt="Memory 2" class="w-full aspect-square object-cover" src="photo/pic3.jpeg" />
+                    <p class="font-handwriting text-center mt-2 text-gray-600 text-lg">Happy times together</p>
+                </div>
             </div>
         </div>
+        <div class="px-6 mt-16 space-y-4">
+            <a href="/pagestory/page1.html">
+                <button
+                    class="w-full bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between group active:scale-[0.98] transition-all">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-red-400">favorite</span>
+                        </div>
+                        <span class="text-xl font-medium text-gray-800">เรื่องราวจากใจ</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-gray-300 group-hover:translate-x-1 transition-transform">chevron_right</span>
+                </button>
+            </a>
+            <button
+                class="w-full bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between group active:scale-[0.98] transition-all">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary">volunteer_activism</span>
+                    </div>
+                    <span class="text-xl font-medium text-gray-800">คำขอบคุณ</span>
+                </div>
+                <span
+                    class="material-symbols-outlined text-gray-300 group-hover:translate-x-1 transition-transform">chevron_right</span>
+            </button>
+            <button
+                class="w-full bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between group active:scale-[0.98] transition-all">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-blue-400">auto_stories</span>
+                    </div>
+                    <span class="text-xl font-medium text-gray-800">ความทรงจำของเรา</span>
+                </div>
+                <span
+                    class="material-symbols-outlined text-gray-300 group-hover:translate-x-1 transition-transform">chevron_right</span>
+            </button>
+        </div>
+        <div class="mt-12 mb-8 text-center">
+            <p class="text-xs text-gray-400 font-light tracking-widest uppercase">
+                จากคนคนหนึ่งที่อยากขอโทษ
+            </p>
+        </div>
+        <div
+            class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-3 flex items-center z-50">
+            <div class="w-12 h-12 rounded-lg bg-gray-200 overflow-hidden flex-shrink-0">
+                <img alt="Song cover" class="w-full h-full object-cover" src="photo/pic5.jpeg" />
+            </div>
+            <div class="ml-3 flex-1 min-w-0">
+                <h4 class="text-sm font-bold text-gray-800 truncate">ของขวัญวันเกิด ( Birthday gift )</h4>
+                <p class="text-xs text-gray-500 truncate">Poramate Leelawanawan</p>
+                <div id="progress-container"
+                    class="w-full bg-gray-100 h-1 mt-2 rounded-full overflow-hidden cursor-pointer">
+                    <div id="progress-bar" class="bg-primary h-full w-[0%]"></div>
+                </div>
+            </div>
+            <div class="flex items-center ml-4 space-x-2">
+                <span class="material-symbols-outlined text-gray-400 text-xl cursor-pointer">skip_previous</span>
+                <div id="play-btn"
+                    class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white cursor-pointer shadow-md shadow-primary/20 hover:scale-105 transition-transform">
+                    <span id="play-icon" class="material-symbols-outlined fill-current">play_arrow</span>
+                </div>
+                <span class="material-symbols-outlined text-gray-400 text-xl cursor-pointer">skip_next</span>
+            </div>
+            <audio id="bg-music" src="music/Hbd ver.2 2.m4a" loop></audio>
+        </div>
     </main>
-    <!-- Material Icons for the arrow -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.textContent = 'pause';
+            } else {
+                audio.pause();
+                playIcon.textContent = 'play_arrow';
+            }
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+    </script>
+    </div>
+    </main>
+
 </body>
 
 </html>
