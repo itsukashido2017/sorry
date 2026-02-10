@@ -9,7 +9,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Prompt:wght@300;400;500;600;700&amp;family=Caveat:wght@400;700&amp;display=swap"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
@@ -34,37 +35,98 @@
             },
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .polaroid {
-                @apply bg-white p-3 pb-6 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100;
-            }
-            .carousel-btn {
-                @apply w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-lg active:scale-95 transition-all z-30;
-            }
-            .material-symbols-outlined {
-                font-family: 'Material Symbols Outlined';
-                font-weight: normal;
-                font-style: normal;
-                font-size: 24px;
-                display: inline-block;
-                line-height: 1;
-                text-transform: none;
-                letter-spacing: normal;
-                word-wrap: normal;
-                white-space: nowrap;
-                direction: ltr;
-            }
+
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
         }
-        body {
-            min-height: 100dvh;
-        }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-700 {
+            animation-delay: 0.7s;
         }
     </style>
     <style>
@@ -83,58 +145,336 @@
     <main
         class="w-full max-w-md min-h-screen relative flex flex-col bg-cream-soft mx-auto shadow-2xl overflow-y-auto no-scrollbar">
         <div class="relative h-[15vh] w-full flex-shrink-0">
-            <div class="absolute inset-0 bg-cover bg-center opacity-80"
-                style="background-image: url('photo/pic5.jpeg');">
+            <div class="absolute inset-0 bg-cover bg-[center_25%] opacity-80"
+                style="background-image: url('photo/pic6.jpeg');">
             </div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-cream-soft"></div>
         </div>
-        <div class="px-8 mt-2 text-center">
+        <div class="px-8 mt-2 text-center animate-slide-up delay-100">
             <h1 class="text-3xl font-bold tracking-tight text-gray-900 leading-tight">
                 คำขอบคุณ
             </h1>
         </div>
         <div class="relative px-4 mt-8 flex items-center justify-center min-h-[420px]">
-            <div class="absolute left-6 carousel-btn translate-y-[-10px]">
+            <div id="btn-left"
+                class="absolute left-6 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-lg active:scale-95 transition-all z-30 translate-y-[-10px] cursor-pointer">
                 <span class="material-symbols-outlined text-2xl">chevron_left</span>
             </div>
-            <div class="absolute right-6 carousel-btn translate-y-[-10px]">
+            <div id="btn-right"
+                class="absolute right-6 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-lg active:scale-95 transition-all z-30 translate-y-[-10px] cursor-pointer">
                 <span class="material-symbols-outlined text-2xl">chevron_right</span>
             </div>
-            <div class="relative w-full flex items-center justify-center">
-                <div class="absolute w-[65%] polaroid left-0 -translate-x-12 scale-90 opacity-80 z-10">
-                    <div
-                        class="aspect-square bg-placeholder-green flex items-center justify-center text-white text-xs text-center p-4">
-                        MEMORY 0
-                    </div>
-                    <div class="mt-4">
-                        <p class="font-handwriting text-center text-gray-400 text-base">ความทรงจำ...</p>
-                    </div>
-                </div>
-                <div class="absolute w-[65%] polaroid right-0 translate-x-12 scale-90 opacity-80 z-10">
-                    <div
-                        class="aspect-square bg-placeholder-green flex items-center justify-center text-white text-xs text-center p-4">
-                        MEMORY 2
-                    </div>
-                    <div class="mt-4">
-                        <p class="font-handwriting text-center text-gray-400 text-base">ความทรงจำ...</p>
-                    </div>
-                </div>
-                <div class="relative w-[72%] polaroid z-20 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
-                    <div
-                        class="aspect-square bg-placeholder-green flex flex-col items-center justify-center text-white p-6">
-                        <span class="text-xl font-bold mb-1 tracking-widest">MEMORY 1</span>
-                        <p class="text-[8px] opacity-70 text-center leading-tight">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                        </p>
-                    </div>
-                    <div class="mt-4 flex flex-col items-center">
-                        <p class="font-handwriting text-center text-gray-700 text-2xl">ขอบคุณที่อยู่ข้างกัน</p>
-                    </div>
-                </div>
+            <div id="carousel-track"
+                class="relative w-full h-[400px] flex items-center justify-center animate-fade-in delay-200">
+                <!-- Items will be generated by JS -->
             </div>
+
+            <script>
+                const carouselData = [
+                    {
+                        img: "photo/pic2.jpeg",
+                        title: "MEMORY 0",
+                        text: "ความทรงจำ...",
+                        desc: "รูปภาพแห่งความทรงจำที่ดีที่สุดของเรา"
+                    },
+                    {
+                        img: "photo/pic1.jpeg",
+                        title: "MEMORY 1",
+                        text: "ขอบคุณที่อยู่ข้างกัน",
+                        desc: "ไม่ว่าจะสุขหรือทุกข์ ขอบคุณที่คอยอยู่เคียงข้างเสมอมานะ"
+                    },
+                    {
+                        img: "photo/pic3.jpeg",
+                        title: "MEMORY 2",
+                        text: "ความทรงจำ...",
+                        desc: "รอยยิ้มของแกคือสิ่งที่ทำให้โลกสดใสขึ้นเสมอ"
+                    },
+                    {
+                        img: "photo/pic1.jpeg",
+                        title: "MEMORY 3",
+                        text: "ตลอดไป...",
+                        desc: "ขอให้เราได้สร้างความทรงจำดีๆ แบบนี้ด้วยกันตลอดไปนะ"
+                    }
+                ];
+
+                let currentIndex = 1;
+
+                function updateCarousel() {
+                    const track = document.getElementById('carousel-track');
+                    const dotsContainer = document.getElementById('carousel-dots');
+
+                    // Clear existing items
+                    track.innerHTML = '';
+                    dotsContainer.innerHTML = '';
+
+                    carouselData.forEach((item, index) => {
+                        // Create Dot
+                        const dot = document.createElement('div');
+                        dot.className = `w-2 h-2 rounded-full transition-colors duration-300 ${index === currentIndex ? 'bg-primary' : 'bg-gray-300'}`;
+                        dot.onclick = () => { currentIndex = index; updateCarousel(); };
+                        dotsContainer.appendChild(dot);
+
+                        // Calculate position relative to current index
+                        let position = 'hidden'; // Default hidden
+                        let zIndex = 0;
+                        let opacity = 0;
+                        let scale = 0.8;
+                        let translateX = '0px';
+
+                        // We need to show: current-1 (left), current (center), current+1 (right)
+                        // Cyclic logic for 4 items: 0, 1, 2, 3
+
+                        const total = carouselData.length;
+
+                        // Normalized difference handling wrap-around
+                        let diff = (index - currentIndex + total) % total;
+                        // specific adjustments for 4 items to centre "current"
+                        // diff 0 = center
+                        // diff 1 = right
+                        // diff total-1 (or -1) = left
+                        // others = hidden
+
+                        if (diff === 0) {
+                            // Center
+                            position = 'center';
+                            zIndex = 20;
+                            opacity = 1;
+                            scale = 1;
+                            translateX = '0';
+                        } else if (diff === 1) {
+                            // Right
+                            position = 'right';
+                            zIndex = 10;
+                            opacity = 0.8;
+                            scale = 0.9;
+                            translateX = '3rem'; // translate-x-12
+                        } else if (diff === total - 1) {
+                            // Left
+                            zIndex = 10;
+                            opacity = 0.8;
+                            scale = 0.9;
+                            translateX = '-3rem'; // -translate-x-12
+                        } else {
+                            // Hidden / Behind
+                            zIndex = 0;
+                            opacity = 0;
+                            scale = 0.8;
+                        }
+
+                        const card = document.createElement('div');
+
+                        // Base classes common to all
+                        let baseClasses = "absolute transition-all duration-500 ease-in-out bg-white p-3 pb-6 shadow-md border border-gray-100";
+
+                        // Dynamic styling
+                        card.style.zIndex = zIndex;
+                        card.style.opacity = opacity;
+                        card.style.transform = `translateX(${translateX}) scale(${scale})`;
+
+                        // Width logic - Center is slightly wider in original CSS (72% vs 65%)
+                        if (index === currentIndex) {
+                            card.className = `${baseClasses} w-[72%] shadow-[0_20px_50px_rgba(0,0,0,0.15)]`;
+                        } else {
+                            card.className = `${baseClasses} w-[65%]`;
+                        }
+
+                        // Content
+                        let mediaContent = '';
+                        if (item.isVideo) {
+                            mediaContent = `<video src="${item.img}" class="aspect-square object-cover w-full block bg-gray-200" controls></video>`;
+                        } else {
+                            mediaContent = `<img src="${item.img}" class="aspect-square object-cover w-full block bg-gray-200">`;
+                        }
+
+                        // Text content differs based on active state in original
+                        let textContent = '';
+                        if (index === currentIndex) {
+                            textContent = `
+                                <div class="mt-4 flex flex-col items-center">
+                                    <p class="font-handwriting text-center text-gray-700 text-2xl">${item.text}</p>
+                                    <p class="text-[10px] text-gray-400 text-center mt-2 px-2">${item.desc}</p>
+                                </div>
+                            `;
+                        } else {
+                            textContent = `
+                                <div class="mt-4">
+                                    <p class="font-handwriting text-center text-gray-400 text-base">${item.text}</p>
+                                </div>
+                            `;
+                        }
+
+                        card.innerHTML = mediaContent + textContent;
+                        track.appendChild(card);
+                    });
+                }
+
+                // Initial Render
+                document.addEventListener('DOMContentLoaded', () => {
+                    const track = document.getElementById('carousel-track');
+                    const dotsContainer = document.getElementById('carousel-dots');
+
+                    // Create elements once
+                    carouselData.forEach((item, index) => {
+                        // Create Dot
+                        const dot = document.createElement('div');
+                        dot.className = `w-2 h-2 rounded-full transition-colors duration-300 cursor-pointer bg-gray-300`;
+                        dot.onclick = () => { currentIndex = index; updateCarousel(); };
+                        dotsContainer.appendChild(dot);
+
+                        // Create Card
+                        const card = document.createElement('div');
+                        card.className = "absolute transition-all duration-1000 ease-in-out bg-white p-3 pb-6 shadow-md border border-gray-100 origin-center";
+
+                        // Media
+                        let mediaContent = '';
+                        if (item.isVideo) {
+                            mediaContent = `<video src="${item.img}" class="aspect-square object-cover w-full block bg-gray-200" controls></video>`;
+                        } else {
+                            mediaContent = `<img src="${item.img}" class="aspect-square object-cover w-full block bg-gray-200">`;
+                        }
+
+                        // Text Content (Unified structure)
+                        // Title: font-handwriting text-center
+                        // Desc: text-[10px] text-gray-400 text-center mt-2 px-2
+                        const textContent = `
+                            <div class="mt-4 flex flex-col items-center transition-all duration-1000">
+                                <p class="font-handwriting text-center transition-all duration-1000 text-base text-gray-400" id="title-${index}">${item.text}</p>
+                                <div class="overflow-hidden transition-all duration-1000 max-h-0 opacity-0" id="desc-container-${index}">
+                                    <p class="text-[10px] text-gray-400 text-center mt-2 px-2">${item.desc}</p>
+                                </div>
+                            </div>
+                        `;
+
+                        card.innerHTML = mediaContent + textContent;
+                        track.appendChild(card);
+                    });
+
+                    function updateCarousel() {
+                        // Update Dots
+                        Array.from(dotsContainer.children).forEach((dot, index) => {
+                            if (index === currentIndex) {
+                                dot.classList.replace('bg-gray-300', 'bg-primary');
+                            } else {
+                                dot.classList.replace('bg-primary', 'bg-gray-300');
+                            }
+                        });
+
+                        // Update Cards
+                        Array.from(track.children).forEach((card, index) => {
+                            const total = carouselData.length;
+                            let diff = (index - currentIndex + total) % total;
+
+                            let zIndex = 0;
+                            let opacity = 0;
+                            let scale = 0.8;
+                            let translateX = '0px';
+                            let widthClass = 'w-[65%]';
+                            let shadowClass = 'shadow-md';
+
+                            // Text Elements
+                            const titleEl = card.querySelector(`p[id^="title-"]`);
+                            const descContainer = card.querySelector(`div[id^="desc-container-"]`);
+
+                            if (diff === 0) {
+                                // Center
+                                zIndex = 20;
+                                opacity = 1;
+                                scale = 1;
+                                translateX = '0';
+                                widthClass = 'w-[72%]';
+                                shadowClass = 'shadow-[0_20px_50px_rgba(0,0,0,0.15)]';
+
+                                // Active Text State
+                                if (titleEl) {
+                                    titleEl.className = "font-handwriting text-center transition-all duration-1000 text-2xl text-gray-700";
+                                }
+                                if (descContainer) {
+                                    descContainer.className = "overflow-hidden transition-all duration-1000 max-h-20 opacity-100";
+                                }
+
+                            } else {
+                                // Inactive Text State
+                                if (titleEl) {
+                                    titleEl.className = "font-handwriting text-center transition-all duration-1000 text-base text-gray-400";
+                                }
+                                if (descContainer) {
+                                    descContainer.className = "overflow-hidden transition-all duration-1000 max-h-0 opacity-0";
+                                }
+
+                                if (diff === 1) {
+                                    // Right
+                                    zIndex = 10;
+                                    opacity = 0.8;
+                                    scale = 0.9;
+                                    translateX = '3rem';
+                                } else if (diff === total - 1) {
+                                    // Left
+                                    zIndex = 10;
+                                    opacity = 0.8;
+                                    scale = 0.9;
+                                    translateX = '-3rem';
+                                } else {
+                                    // Hidden
+                                    zIndex = 0;
+                                    opacity = 0;
+                                    scale = 0.8;
+                                }
+                            }
+
+                            // Apply Styles
+                            card.style.zIndex = zIndex;
+                            card.style.opacity = opacity;
+                            card.style.transform = `translateX(${translateX}) scale(${scale})`;
+
+                            // Apply Classes for Width and Shadow
+                            // Remove old width/shadow classes to avoid conflicts is tricky with string replacement
+                            // So we explicitly set the className to rebuild it, ensuring transitions work
+                            // BUT we need to keep base classes. 
+                            // The base classes are: absolute transition-all duration-500 ease-in-out bg-white p-3 pb-6 border border-gray-100 origin-center
+
+                            card.className = `absolute transition-all duration-1000 ease-in-out bg-white p-3 pb-6 border border-gray-100 origin-center ${widthClass} ${shadowClass}`;
+                        });
+                    }
+
+                    // Initial Update
+                    updateCarousel();
+
+                    // Navigation Handlers
+                    const btnLeft = document.getElementById('btn-left');
+                    const btnRight = document.getElementById('btn-right');
+
+                    if (btnLeft) {
+                        btnLeft.onclick = () => {
+                            currentIndex = (currentIndex - 1 + carouselData.length) % carouselData.length;
+                            updateCarousel();
+                        };
+                    }
+
+                    if (btnRight) {
+                        btnRight.onclick = () => {
+                            currentIndex = (currentIndex + 1) % carouselData.length;
+                            updateCarousel();
+                        };
+                    }
+
+                    // Helper for :contains text selection since querySelector doesn't support it directly
+                    // We'll just select by index since we know the structure
+                    const navButtons = document.querySelectorAll('.rounded-full.bg-primary');
+                    // The first 2 are the nav buttons (left, right)
+                    if (navButtons.length >= 2) {
+                        navButtons[0].onclick = () => {
+                            currentIndex = (currentIndex - 1 + carouselData.length) % carouselData.length;
+                            updateCarousel();
+                        };
+                        navButtons[1].onclick = () => {
+                            currentIndex = (currentIndex + 1) % carouselData.length;
+                            updateCarousel();
+                        };
+                    }
+                });
+            </script>
         </div>
-        <div class="px-8 mt-12 mb-8 space-y-4">
+        <div class="px-8 mt-12 mb-8 space-y-4 animate-slide-up delay-300">
             <div class="w-10 h-[2px] bg-primary/30 mx-auto"></div>
             <p class="text-dark-gray text-center leading-relaxed font-normal">
                 แบม... เราอยากจะขอบคุณแกจริงๆ สำหรับทุกอย่างที่ผ่านมานะ
@@ -142,24 +482,21 @@
                 ขอบคุณที่อดทนกับนิสัยแย่ๆ ของเรา ขอบคุณที่ยังเชื่อใจในตัวเราอยู่
                 เราสัญญาว่าจะรักษาความทรงจำเหล่านี้ไว้ให้ดีที่สุด
             </p>
-            <p class="text-dark-gray text-center leading-relaxed font-normal italic">
+            <p class="text-dark-gray text-center leading-relaxed font-normal italic bounce-animate">
                 ดีใจนะที่มีแกในชีวิต...
             </p>
         </div>
-        <div class="mt-auto px-8 pb-6">
+        <div class="mt-auto px-8 pb-6 animate-slide-up delay-500">
             <a href="index.html" class="w-full">
                 <button
-                    class="w-full bg-white text-gray-800 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center space-x-2 group active:scale-[0.98] transition-all">
+                    class="w-full bg-white text-gray-800 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center space-x-2 group active:scale-[0.98] transition-all animate-pulse-slow">
                     <span class="material-symbols-outlined text-primary">home</span>
                     <span class="font-medium text-lg">กลับสู่หน้าหลัก</span>
                 </button>
             </a>
         </div>
-        <div class="flex justify-center space-x-2 pb-10">
-            <div class="w-2 h-2 rounded-full bg-primary"></div>
-            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
-            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
-            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+        <div id="carousel-dots" class="flex justify-center space-x-2 pb-10 animate-fade-in delay-700">
+            <!-- Dots will be generated by JS -->
         </div>
     </main>
 
