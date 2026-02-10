@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="light" lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Thank You - แด่... แบม</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Prompt:wght@300;400;500;600;700&amp;family=Caveat:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#fec3ce",
+                        "cream-soft": "#F9F7F2",
+                        "washi-pink": "#FFB7C5",
+                        "washi-blue": "#B2EBF2",
+                        "washi-orange": "#FFCC80",
+                        "dark-gray": "#333333",
+                        "placeholder-green": "#FFB7C5", // Changed to match washi-pink
+                    },
+                    fontFamily: {
+                        "display": ["'Plus Jakarta Sans'", "'Prompt'", "sans-serif"],
+                        "handwriting": ["'Caveat'", "cursive"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .polaroid {
+                @apply bg-white p-3 pb-6 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100;
+            }
+            .carousel-btn {
+                @apply w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-lg active:scale-95 transition-all z-30;
+            }
+        }
+        body {
+            min-height: 100dvh;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-cream-soft font-display text-gray-800 antialiased">
+    <main
+        class="w-full max-w-md min-h-screen relative flex flex-col bg-cream-soft mx-auto shadow-2xl overflow-y-auto no-scrollbar">
+        <div class="relative h-[15vh] w-full flex-shrink-0">
+            <div class="absolute inset-0 bg-cover bg-center opacity-80"
+                style="background-image: url('photo/pic5.jpeg');">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-cream-soft"></div>
+        </div>
+        <div class="px-8 mt-2 text-center">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900 leading-tight">
+                คำขอบคุณ
+            </h1>
+        </div>
+        <div class="relative px-4 mt-8 flex items-center justify-center min-h-[420px]">
+            <div class="absolute left-6 carousel-btn translate-y-[-10px]">
+                <span class="material-symbols-outlined text-2xl">chevron_left</span>
+            </div>
+            <div class="absolute right-6 carousel-btn translate-y-[-10px]">
+                <span class="material-symbols-outlined text-2xl">chevron_right</span>
+            </div>
+            <div class="relative w-full flex items-center justify-center">
+                <div class="absolute w-[65%] polaroid left-0 -translate-x-12 scale-90 opacity-80 z-10">
+                    <div
+                        class="aspect-square bg-placeholder-green flex items-center justify-center text-white text-xs text-center p-4">
+                        MEMORY 0
+                    </div>
+                    <div class="mt-4">
+                        <p class="font-handwriting text-center text-gray-400 text-base">ความทรงจำ...</p>
+                    </div>
+                </div>
+                <div class="absolute w-[65%] polaroid right-0 translate-x-12 scale-90 opacity-80 z-10">
+                    <div
+                        class="aspect-square bg-placeholder-green flex items-center justify-center text-white text-xs text-center p-4">
+                        MEMORY 2
+                    </div>
+                    <div class="mt-4">
+                        <p class="font-handwriting text-center text-gray-400 text-base">ความทรงจำ...</p>
+                    </div>
+                </div>
+                <div class="relative w-[72%] polaroid z-20 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+                    <div
+                        class="aspect-square bg-placeholder-green flex flex-col items-center justify-center text-white p-6">
+                        <span class="text-xl font-bold mb-1 tracking-widest">MEMORY 1</span>
+                        <p class="text-[8px] opacity-70 text-center leading-tight">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex flex-col items-center">
+                        <p class="font-handwriting text-center text-gray-700 text-2xl">ขอบคุณที่อยู่ข้างกัน</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-8 mt-12 mb-8 space-y-4">
+            <div class="w-10 h-[2px] bg-primary/30 mx-auto"></div>
+            <p class="text-dark-gray text-center leading-relaxed font-normal">
+                แบม... เราอยากจะขอบคุณแกจริงๆ สำหรับทุกอย่างที่ผ่านมานะ
+                ไม่ว่าจะเป็นตอนที่เราแย่ที่สุด แกก็เป็นคนแรกที่คอยดึงเราขึ้นมาเสมอ
+                ขอบคุณที่อดทนกับนิสัยแย่ๆ ของเรา ขอบคุณที่ยังเชื่อใจในตัวเราอยู่
+                เราสัญญาว่าจะรักษาความทรงจำเหล่านี้ไว้ให้ดีที่สุด
+            </p>
+            <p class="text-dark-gray text-center leading-relaxed font-normal italic">
+                ดีใจนะที่มีแกในชีวิต...
+            </p>
+        </div>
+        <div class="mt-auto px-8 pb-6">
+            <a href="index.html" class="w-full">
+                <button
+                    class="w-full bg-white text-gray-800 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center space-x-2 group active:scale-[0.98] transition-all">
+                    <span class="material-symbols-outlined text-primary">home</span>
+                    <span class="font-medium text-lg">กลับสู่หน้าหลัก</span>
+                </button>
+            </a>
+        </div>
+        <div class="flex justify-center space-x-2 pb-10">
+            <div class="w-2 h-2 rounded-full bg-primary"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+        </div>
+    </main>
+
+</body>
+
+</html>
