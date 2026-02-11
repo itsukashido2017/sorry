@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="light" lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Memory Journey Developer Template</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Prompt:wght@300;400;500;600;700&amp;family=Caveat:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-olive": "#fec3ce",
+                        "cream-paper": "#FDFBF0",
+                        "sketch-blue": "#4A90E2",
+                        "grid-line": "#E8E3D5",
+                        "tape-pink": "#FFB7C5",
+                        "tape-teal": "#B2EBF2",
+                        "primary": "#fec3ce",
+                    },
+                    fontFamily: {
+                        "display": ["'Plus Jakarta Sans'", "'Prompt'", "sans-serif"],
+                        "handwriting": ["'Caveat'", "cursive"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .grid-paper {
+                background-color: #fdfbf0;
+                background-image: 
+                    linear-gradient(var(--grid-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+                background-size: 30px 30px;
+                background-attachment: scroll;
+            }               
+            .polaroid-frame {
+                @apply relative bg-white p-3 pb-8 shadow-xl transition-transform;
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            }
+            .washi-tape {
+                @apply absolute -top-4 left-1/2 -translate-x-1/2 h-8 w-24 opacity-80 mix-blend-multiply rotate-1 z-20;
+                clip-path: polygon(5% 0%, 95% 2%, 100% 50%, 95% 98%, 5% 100%, 0% 50%);
+            }
+            .washi-tape-pink { @apply bg-tape-pink/60; }
+            .washi-tape-teal { @apply bg-tape-teal/60; }
+            .winding-path-svg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 0;
+            }
+            .sticky-controls {
+                @apply fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md px-6 pb-6 pt-12 z-50 pointer-events-none;
+                background: linear-gradient(to top, #FDFBF0 70%, transparent);
+            }
+            .interactive {
+                @apply pointer-events-auto;
+            }
+            .caption-area {
+                @apply font-handwriting text-center text-lg text-gray-700 mt-3;
+            }
+            .date-area {
+                @apply absolute bottom-2 right-4 font-handwriting text-xs text-gray-400;
+            }
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body class="font-display text-gray-800 antialiased bg-cream-paper">
+    <main class="w-full max-w-md min-h-screen relative flex flex-col mx-auto shadow-2xl grid-paper overflow-x-hidden">
+        <header
+            class="pt-20 px-8 text-center relative z-10 bg-cream-paper/90 backdrop-blur-sm pb-10 border-b border-grid-line">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Our Journey Together</h1>
+            <p class="font-handwriting text-2xl text-sketch-blue">ความทรงจำ 50 อย่างที่อยากเก็บไว้กับเธอ</p>
+            <p class="text-[10px] text-gray-400 mt-4 tracking-widest uppercase">Developer Template: Scroll for 50
+                placeholders</p>
+        </header>
+        <div class="relative px-6 py-20 pb-[280px]">
+            <svg class="winding-path-svg" preserveAspectRatio="none" viewBox="0 0 400 12000">
+                <path d="M 200 0 
+                         Q 380 400 200 800 
+                         T 200 1600 
+                         T 200 2400 
+                         T 200 3200 
+                         T 200 4000 
+                         T 200 4800 
+                         T 200 5600 
+                         T 200 6400 
+                         T 200 7200 
+                         T 200 8000 
+                         T 200 8800 
+                         T 200 9600 
+                         T 200 10400 
+                         T 200 11200 
+                         T 200 12000" fill="none" opacity="0.3" stroke="#4A90E2" stroke-dasharray="10,12"
+                    stroke-width="3"></path>
+            </svg>
+            <div class="space-y-48 relative z-10">
+                <div class="flex justify-start pl-2">
+                    <div class="polaroid-frame w-[75%] -rotate-2">
+                        <div class="washi-tape washi-tape-teal"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 1" class="w-full h-full object-cover"
+                                src="photo/1.jpeg" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="flex justify-end pr-2">
+                    <div class="polaroid-frame w-[70%] rotate-3">
+                        <div class="washi-tape washi-tape-pink"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 2" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl231w4LmSkctp3YlJ3ozFXtu2MhBD4hBuEeXoTwpgxehDUiRpOZXGxaWs7Qf0BQOnpAfJCMZXn3qpQWBIX78xNa51-0eFjmTiWt-AsuvqDyDIT1JyYo9S-Ln92ka33KfxyhKwQfDd50C0reyUoaN-NoIQmwUuchBl3IlYBgo4_PTEdlAaSLMnC_sz10tB4FzVl4SXIukQGOJBu1lkkb0qvlfK-kVe7I_fKFW5OA98bb1q9GDZGVspzSkvOUCVdO-W74JNOS7c" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="polaroid-frame w-[75%] -rotate-1">
+                        <div class="washi-tape washi-tape-teal"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 3" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdNz9AetlFfPRy0Nw-LOiIJ4kkG2xK0fQ67eQmolu1cRO6578iodiw0269Q2v-jU8i-_VlYbhZyVKwwvaz3-dBF9XvuJ2_HPseEGwV12EqBOu2VVedWeTuKP6-1bUG-jy5CelkHFGgH6h-Fkm0l6BWk7G2izTVRx63t5d89g37b_hVzxIWydDL8kEZeubFgNQlvuTXmACONc6bksloIw3Q6kcsy_4ZFJcW7A-KW4yyzDTY4T9CxVAWDzWoP3fb__ddz_5DZ6_1" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="flex justify-center py-4">
+                    <div class="w-3 h-3 bg-red-500 rounded-full shadow-lg shadow-red-200"></div>
+                </div>
+                <div class="flex justify-end pr-8">
+                    <div class="polaroid-frame w-[65%] rotate-2">
+                        <div class="washi-tape washi-tape-pink"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 4" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB58mWfFYJBNF6z_obJFbz9ERGMwSuDWGOD6DWEm3VqYZS9U8ymvH82dGD9CfmeUqqUim5m5LO8f7V6NN6sPvfWVUf-6cuti5JJC4oK7jbZbALMJuMfxk0-CGNmBJBaBxRuCtinjaoLxsghG3UafrmO3dw4Eb78NXCQshpbJ2KGQQsLAPiXPK_trQ0vXRAxVqWIhbKM302mxAcnYjv4o5J4Z2oW0MqbX1p8Tyu_aHY0_nmSF6oRwEFixljwpxN1-4XYFUjn-uD" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="flex justify-start pl-8">
+                    <div class="polaroid-frame w-[70%] -rotate-3">
+                        <div class="washi-tape washi-tape-teal"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 5" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl231w4LmSkctp3YlJ3ozFXtu2MhBD4hBuEeXoTwpgxehDUiRpOZXGxaWs7Qf0BQOnpAfJCMZXn3qpQWBIX78xNa51-0eFjmTiWt-AsuvqDyDIT1JyYo9S-Ln92ka33KfxyhKwQfDd50C0reyUoaN-NoIQmwUuchBl3IlYBgo4_PTEdlAaSLMnC_sz10tB4FzVl4SXIukQGOJBu1lkkb0qvlfK-kVe7I_fKFW5OA98bb1q9GDZGVspzSkvOUCVdO-W74JNOS7c" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="polaroid-frame w-[80%] rotate-1">
+                        <div class="washi-tape washi-tape-pink"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 6" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdNz9AetlFfPRy0Nw-LOiIJ4kkG2xK0fQ67eQmolu1cRO6578iodiw0269Q2v-jU8i-_VlYbhZyVKwwvaz3-dBF9XvuJ2_HPseEGwV12EqBOu2VVedWeTuKP6-1bUG-jy5CelkHFGgH6h-Fkm0l6BWk7G2izTVRx63t5d89g37b_hVzxIWydDL8kEZeubFgNQlvuTXmACONc6bksloIw3Q6kcsy_4ZFJcW7A-KW4yyzDTY4T9CxVAWDzWoP3fb__ddz_5DZ6_1" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="text-center py-10">
+                    <p class="font-handwriting text-xl text-sketch-blue/60 italic">Continue scrolling for more
+                        memories...</p>
+                    <div class="flex justify-center mt-4 gap-2 opacity-30">
+                        <span class="material-symbols-outlined">favorite</span>
+                        <span class="material-symbols-outlined">favorite</span>
+                        <span class="material-symbols-outlined">favorite</span>
+                    </div>
+                </div>
+                <div class="flex justify-start pl-4">
+                    <div class="polaroid-frame w-[70%] -rotate-2">
+                        <div class="washi-tape washi-tape-teal"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 7" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSooeGmCQ1DvS1ZDqTTdX-o1UCbXEDIr4x3CBqzAdlylq7L8PKf-5Yv8TrPdrf-IqG9MiZ2N3cYMWDBN9_EIuhpwSdWwZAnEA9SrBo_ig5cjqlLL6QZybWeSHUOXMW9WnxeARW8apEZjzvK5JKAaqOYsGQVl_z9VjGyPDtCTZS2rI7_fQXOj0XSOzhbIVxQtsOWo8GwzhlzR2Ymcx6hxO_bgzYwX8qU_W6sDXO0YtphgDm5iLn8qAcymHyGH1_ZBbFP_bT5Cy-" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="flex justify-end pr-4">
+                    <div class="polaroid-frame w-[75%] rotate-4">
+                        <div class="washi-tape washi-tape-pink"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 8" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB58mWfFYJBNF6z_obJFbz9ERGMwSuDWGOD6DWEm3VqYZS9U8ymvH82dGD9CfmeUqqUim5m5LO8f7V6NN6sPvfWVUf-6cuti5JJC4oK7jbZbALMJuMfxk0-CGNmBJBaBxRuCtinjaoLxsghG3UafrmO3dw4Eb78NXCQshpbJ2KGQQsLAPiXPK_trQ0vXRAxVqWIhbKM302mxAcnYjv4o5J4Z2oW0MqbX1p8Tyu_aHY0_nmSF6oRwEFixljwpxN1-4XYFUjn-uD" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="polaroid-frame w-[70%] -rotate-3">
+                        <div class="washi-tape washi-tape-teal"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 9" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB58mWfFYJBNF6z_obJFbz9ERGMwSuDWGOD6DWEm3VqYZS9U8ymvH82dGD9CfmeUqqUim5m5LO8f7V6NN6sPvfWVUf-6cuti5JJC4oK7jbZbALMJuMfxk0-CGNmBJBaBxRuCtinjaoLxsghG3UafrmO3dw4Eb78NXCQshpbJ2KGQQsLAPiXPK_trQ0vXRAxVqWIhbKM302mxAcnYjv4o5J4Z2oW0MqbX1p8Tyu_aHY0_nmSF6oRwEFixljwpxN1-4XYFUjn-uD" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+                <div
+                    class="text-center py-20 bg-white/40 border-y border-dashed border-sketch-blue/20 backdrop-blur-sm">
+                    <p class="font-handwriting text-2xl text-sketch-blue mb-4">...and many more to come</p>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest px-10 leading-relaxed">
+                        Developer: Inject items 10-50 following the alternating pattern above to complete the 50-photo
+                        journey.
+                    </p>
+                </div>
+                <div class="flex justify-end pr-6">
+                    <div class="polaroid-frame w-[70%] rotate-1">
+                        <div class="washi-tape washi-tape-pink"></div>
+                        <div class="w-full aspect-square bg-gray-100 overflow-hidden border border-gray-100">
+                            <img alt="Memory 10" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl231w4LmSkctp3YlJ3ozFXtu2MhBD4hBuEeXoTwpgxehDUiRpOZXGxaWs7Qf0BQOnpAfJCMZXn3qpQWBIX78xNa51-0eFjmTiWt-AsuvqDyDIT1JyYo9S-Ln92ka33KfxyhKwQfDd50C0reyUoaN-NoIQmwUuchBl3IlYBgo4_PTEdlAaSLMnC_sz10tB4FzVl4SXIukQGOJBu1lkkb0qvlfK-kVe7I_fKFW5OA98bb1q9GDZGVspzSkvOUCVdO-W74JNOS7c" />
+                        </div>
+                        <div class="caption-area">[Caption Text Here]</div>
+                        <div class="date-area">[Date Here]</div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute top-[1200px] left-10 opacity-20">
+                <span class="material-symbols-outlined text-sketch-blue scale-150">auto_awesome</span>
+            </div>
+            <div class="absolute top-[2200px] right-10 opacity-20">
+                <span class="material-symbols-outlined text-primary-olive scale-150">sentiment_satisfied</span>
+            </div>
+        </div>
+        <div class="sticky-controls">
+            <div
+                class="interactive mb-4 w-full bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-3 flex items-center">
+                <div class="w-12 h-12 rounded-lg bg-gray-200 overflow-hidden flex-shrink-0">
+                    <img alt="Song cover" class="w-full h-full object-cover" src="photo/pic5.jpeg" />
+                </div>
+                <div class="ml-3 flex-1 min-w-0">
+                    <h4 class="text-sm font-bold text-gray-800 truncate">ของขวัญวันเกิด ( Birthday gift )</h4>
+                    <p class="text-xs text-gray-500 truncate">Poramate Leelawanawan</p>
+                    <div id="progress-container"
+                        class="w-full bg-gray-100 h-1 mt-2 rounded-full overflow-hidden cursor-pointer">
+                        <div id="progress-bar" class="bg-primary h-full w-[0%]"></div>
+                    </div>
+                </div>
+                <div class="flex items-center ml-4 space-x-2">
+                    <span class="material-symbols-outlined text-gray-400 text-xl cursor-pointer">skip_previous</span>
+                    <div id="play-btn"
+                        class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white cursor-pointer shadow-md shadow-primary/20 hover:scale-105 transition-transform">
+                        <span id="play-icon" class="material-symbols-outlined fill-current">play_arrow</span>
+                    </div>
+                    <span class="material-symbols-outlined text-gray-400 text-xl cursor-pointer">skip_next</span>
+                </div>
+                <audio id="bg-music" src="music/Hbd ver.2 2.m4a" loop></audio>
+            </div>
+            <a href="index.html">
+                <button
+                    class="interactive w-full bg-primary-olive text-white font-medium py-4 rounded-full shadow-lg shadow-primary-olive/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">home</span>
+                    กลับสู่หน้าหลัก
+                </button>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.textContent = 'pause';
+            } else {
+                audio.pause();
+                playIcon.textContent = 'play_arrow';
+            }
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+    </script>
+
+</body>
+
+</html>
